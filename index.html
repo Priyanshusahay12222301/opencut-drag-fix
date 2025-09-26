@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenCut Editor - Text Dragging Fix</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+        }
+        .editor-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .preview-area {
+            flex: 1;
+            position: relative;
+            background-color: #2a2a2a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .canvas-container {
+            position: relative;
+            width: 800px;
+            height: 450px;
+            background-color: #000;
+            border: 2px solid #333;
+        }
+        .timeline {
+            height: 200px;
+            background-color: #333;
+            border-top: 2px solid #555;
+            padding: 20px;
+        }
+        .controls {
+            height: 60px;
+            background-color: #444;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 10px;
+        }
+        button {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="editor-container">
+        <div class="preview-area">
+            <div class="canvas-container" id="canvas-container">
+                <canvas id="main-canvas" width="800" height="450"></canvas>
+            </div>
+        </div>
+        <div class="controls">
+            <button onclick="addTextElement()">Add Text</button>
+            <button onclick="playPause()">Play/Pause</button>
+            <button onclick="seek(0)">Reset</button>
+        </div>
+        <div class="timeline">
+            <p>Timeline (Text elements and controls will appear here)</p>
+        </div>
+    </div>
+
+    <script src="js/textElement.js"></script>
+    <script src="js/dragSystem.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/editor.js"></script>
+</body>
+</html>
